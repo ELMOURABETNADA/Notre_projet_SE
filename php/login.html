@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Form</title>
+    <!--Font Awesome-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        :root {
+            --standard: #003366;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            color: var(--standard);
+        }
+
+        .login {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+        }
+
+        .title {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .container-box {
+            margin-bottom: 20px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .login-box {
+            margin-bottom: 15px;
+        }
+
+        .input-box {
+            margin-bottom: 10px;
+        }
+
+        .login-label {
+            margin-right: 10px;
+        }
+
+        .login-input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        .login-input:focus {
+            border-color: var(--standard);
+            outline: none;
+            box-shadow: 0 0 5px var(--standard);
+        }
+
+        .fa {
+            margin-left: 10px;
+            font-size: 20px;
+            color: var(--standard);
+        }
+
+        .check {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .check-box {
+            display: flex;
+            align-items: center;
+        }
+
+        .check-label {
+            color: #555;
+        }
+
+        .forgot {
+            color: var(--standard);
+            text-decoration: none;
+        }
+
+        .button {
+            width: 100%;
+            padding: 10px;
+            background-color: #2e4f72;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .button:hover {
+            background-color: var(--standard);
+        }
+
+        .register {
+            text-align: center;
+        }
+
+        .register a {
+            color: var(--standard);
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+<div class="login">
+        <form action="login.php" class="container" id="loginForm" method="post">
+            <h1 class="title">Login</h1>
+            <div class="container-box">
+                <div class="login-box">
+                    <div class="input-box">
+                        <i class="fa fa-solid fa-envelope"></i>
+                        <label for="email" class="login-label">Email:</label>
+                        <input type="email" class="login-input" id="email" name="email" placeholder="Enter your email">
+                    </div>
+                </div>
+                <div class="login-box">
+                    <div class="input-box">
+                        <i class="fa fa-solid fa-lock"></i>
+                        <label for="password" class="login-label">Password:</label>
+                        <input type="password" class="login-input" id="password" name="password" required placeholder="Enter your password">
+                    </div>
+                </div>
+            </div>
+            <button type="submit" class="button" id="button">Login</button>
+            <p class="register">
+                Don't have an account? <a href="register.html">Register</a>
+            </p>
+        </form>
+    </div>
+</body>
+</html>
