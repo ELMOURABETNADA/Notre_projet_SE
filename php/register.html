@@ -3,19 +3,268 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Inscription</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Register</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
 </head>
 <body>
-    <h2>Inscription</h2>
-    <form action="register.php" method="post">
-        <label for="username">Nom d'utilisateur:</label>
-        <input type="text" id="username" name="username" required><br><br>
-        <label for="password">Mot de passe:</label>
-        <input type="password" id="password" name="password" required><br><br>
-        <!-- Vous pouvez ajouter d'autres champs ici -->
-        <input type="submit" value="S'inscrire">
-    </form>
-    <p>Déjà un utilisateur? <a href="index.html">Connectez-vous ici</a>.</p>
+    <style>
+        :root {
+        --standard : #003366;
+}
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+}
+
+.container {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+}
+
+.form-group select {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    background-color: #fff;
+}
+
+.form-group button {
+    padding: 10px 20px;
+    background-color: #254a6f;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.form-group button:hover {
+    background-color: var(--standard);
+}
+
+.form-group .checkbox {
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+.form-group i {
+    color: var(--standard);
+}
+.form-group:last-of-type i {
+    color: white; 
+}
+.form-group .checkbox input[type="checkbox"] {
+    margin-right: 5px;
+}
+.strength-bar {
+    width: 100%;
+    height: 10px;
+    margin-top: 5px;
+    background-color: #eee;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.strength-bar-inner {
+    height: 100%;
+    width: 0%;
+    transition: width 0.3s ease;
+}
+
+.weak {
+    background-color: #ff4d4d; /* Red */
+}
+
+.medium {
+    background-color: #ffa500; /* Orange */
+}
+
+.strong {
+    background-color: #32CD32; /* Green */
+}
+    </style>
+    <div class="container">
+        <h2><i class="fas fa-user-graduate"></i> Student Registration</h2>
+        <form action="register.php" method="post">
+            <div class="form-group">
+                <label for="name"><i class="fa fas fa-user"></i> Name:</label>
+                <input type="text" id="name" name="name" required placeholder="Enter your full name">
+            </div>
+            <div class="form-group">
+                <label for="email"><i class="fa fas fa-envelope"></i> Email:</label>
+                <input type="email" id="email" name="email" required placeholder="Enter your email">
+            </div>
+            <div class="form-group">
+                <label for="password"><i class="fa fas fa-lock"></i> Password:</label>
+                <input type="password" id="password" name="password" required placeholder="Enter your password">
+                <div class="strength-bar">
+                <div class="strength-bar-inner"></div>
+            </div>
+            
+            </div>
+            <div class="form-group">
+                <label for="confirmPassword"><i class="fa fas fa-lock"></i> Confirm Password:</label>
+                <input type="password" id="confirmPassword" name="confirmPassword" minlength="8" required placeholder="Enter your password">
+                <span id="passwordMatch"></span>
+            </div>
+            <div class="form-group">
+                <p id="passwordMatchMessage"></p>
+            </div>
+            <div class="form-group">
+                <label for="dob"><i class="fa fas fa-calendar-alt"></i> Date of Birthday:</label>
+                <input type="date" id="dob" name="dob" required>
+            </div>
+            <div class="form-group">
+                <label for="gender">Gender:</label>
+                <select id="gender" name="gender" required>
+                    <option value="">Select</option>
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                </select>
+            </div>
+            <div class="form-group">
+    <label for="filiere"><i class="fa fas fa-graduation-cap"></i> Filière:</label>
+    <select id="filiere" name="filiere" required>
+        <option value="">Select</option>
+        <option value="Genie informatique">Gnie informatique</option>
+        <option value="Genie civil">Genie civil</option>
+        <option value="Genie mecatronique">Genie mecatronique</option>
+        <option value="Supply chain managemant">Supply chain managemant</option>
+        <option value="Genie telecomunication et reseaux">Genie telecommunications et reseaux</option>
+    </select>
+</div>
+		
+            <div class="form-group">
+                <button type="submit"><i class="fa fas fa-user-plus"></i> Register</button>
+            </div>
+        </form>
+    </div>
 </body>
+<script>
+    function validateForm() {
+    var name = document.getElementById('name').value;
+    var email = document.getElementById('email').value;
+    var password = document.getElementById('password').value;
+    var confirmPassword = document.getElementById('confirmPassword').value;
+
+    // Simple validation example
+    if (name.trim() === '') {
+        alert('Please enter your name.');
+        return false;
+    }
+
+    if (email.trim() === '') {
+        alert('Please enter your email.');
+        return false;
+    }
+
+    if (password.trim() === '') {
+        alert('Please enter your password.');
+        return false;
+    }
+
+    if (password.length < 8) {
+        alert('Password must be at least 8 characters long.');
+        return false;
+    }
+
+    if (password !== confirmPassword) {
+        document.getElementById('passwordMatchMessage').textContent = 'Passwords do not match';
+        return false;
+    } else {
+        document.getElementById('passwordMatchMessage').textContent = '';
+    }
+
+    return true;
+}
+
+document.getElementById('password').addEventListener('input', function() {
+    var password = this.value;
+    var passwordStrength = document.querySelector('.strength-bar-inner');
+
+    var strength = 0;
+
+    // Check if password contains numbers
+    if (password.match(/[0-9]+/)) {
+        strength += 1;
+    }
+
+    // Check if password contains lowercase letters
+    if (password.match(/[a-z]+/)) {
+        strength += 1;
+    }
+
+    // Check if password contains uppercase letters
+    if (password.match(/[A-Z]+/)) {
+        strength += 1;
+    }
+
+    // Check if password contains special characters
+    if (password.match(/[$@#&!]+/)) {
+        strength += 1;
+    }
+
+    // Check password length
+    if (password.length >= 8) {
+        strength += 1;
+    }
+
+    // Update password strength indicator
+    switch (strength) {
+        case 0:
+        case 1:
+            passwordStrength.style.width = '20%';
+            passwordStrength.className = 'strength-bar-inner weak';
+            break;
+        case 2:
+        case 3:
+            passwordStrength.style.width = '50%';
+            passwordStrength.className = 'strength-bar-inner medium';
+            break;
+        default:
+            passwordStrength.style.width = '100%';
+            passwordStrength.className = 'strength-bar-inner strong';
+            break;
+    }
+});
+
+document.getElementById('confirmPassword').addEventListener('input', function() {
+    var confirmPassword = this.value;
+    var password = document.getElementById('password').value;
+
+    if (confirmPassword !== password) {
+        document.getElementById('passwordMatchMessage').textContent = 'Passwords do not match';
+    } else {
+        document.getElementById('passwordMatchMessage').textContent = '';
+    }
+});
+</script>
 </html>
