@@ -40,9 +40,9 @@ if ($conn->query($sql_insert_user) === TRUE) {
     if ($filiere === "Genie informatique") {
         $_SESSION['filiere_image'] = "GI.jpg";
     } elseif ($filiere === "Genie civil") {
-        $_SESSION['filiere_image'] = "GC.jpeg";
+        $_SESSION['filiere_image'] = "GC.jpg";
     } elseif ($filiere === "Genie mecatronique") {
-        $_SESSION['filiere_image'] = "GM.jpeg";
+        $_SESSION['filiere_image'] = "GM.jpg";
     } elseif ($filiere === "Supply chain managemant") {
         $_SESSION['filiere_image'] = "scm.jpg";
     } elseif ($filiere === "Genie telecomunication et reseaux") {
